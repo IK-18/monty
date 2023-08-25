@@ -20,12 +20,18 @@ int monty_exe(stack_t **stack, unsigned int line_numb, FILE *file, char *line)
 		{"stack", monty_stack}, {"queue", monty_queue}, {NULL, NULL}
 	};
 	unsigned int i;
-	char *cmd;
+	char *cmd, *tok, **arr;
 
-	cmd = strtok(line, " \n\t");
+	tok = strtok(line, " \n\t");
+	while (tok)
+	{
+		arr[i++] = tok;
+		tok = strtok(NULL, " \n\t");
+	}
+	cmd = arr[0];
 	if (cmd && cmd[0] == '#')
 		return (EXIT_SUCCESS);
-	pseudo.value = strtok(NULL, " \n\t");
+	pseudo.value = arr[1];
 	for (i = 0; opcodes[i].opcode && cmd; i++)
 	{
 		if (!strcmp(cmd, opcodes[i].opcode))
