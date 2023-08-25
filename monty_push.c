@@ -13,7 +13,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 
 	if (pseudo.value)
 	{
-		if (pseudo.value[i] == '-')
+		if (pseudo.value[0] == '-')
 			i++;
 		while (pseudo.value[i] != '\0')
 		{
@@ -25,6 +25,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 				monty_free((*stack));
 				exit(EXIT_FAILURE);
 			}
+			i++;
 		}
 	}
 	else
@@ -32,7 +33,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(pseudo.file);
 		free(pseudo.line);
-		monty_free((*stack));
+		monty_free(*stack);
 		exit(EXIT_FAILURE);
 	}
 	val = atoi(pseudo.value);
