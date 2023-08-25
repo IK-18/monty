@@ -24,8 +24,8 @@ void monty_add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
-	temp = tmp->n;
-	tmp->next->n += temp;
+	temp = tmp->n + tmp->next->n;
+	tmp->next->n = temp;
 	*stack = tmp->next;
 	free(tmp);
 }
