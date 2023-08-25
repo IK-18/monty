@@ -13,6 +13,6 @@ void monty_pall(stack_t **stack, __attribute__((unused)) unsigned int line_numbe
 
 	if (!(*stack))
 		return;
-	for (tmp = *stack; tmp->next; tmp = tmp->next)
+	for (tmp = *stack; tmp; tmp = tmp->next)
 		printf("%d\n", tmp->n);
 }
