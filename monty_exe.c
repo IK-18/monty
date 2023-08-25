@@ -25,6 +25,7 @@ int monty_exe(stack_t **stack, unsigned int line_numb, FILE *file, char *line)
 	cmd = strtok(line, " \n\t");
 	if (cmd && cmd[0] == '#')
 		return (EXIT_SUCCESS);
+	pseudo.value = strtok(NULL, " \n\t");
 	for (i = 0; opcodes[i].opcode && cmd; i++)
 	{
 		if (!strcmp(cmd, opcodes[i].opcode))
