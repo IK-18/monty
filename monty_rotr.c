@@ -7,9 +7,10 @@
  *
  * Return: Nothing
  */
-void monty_rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void monty_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp1, *tmp2;
+	(void) line_number;
 
 	if (!(*stack) || !(*stack)->next)
 		return;

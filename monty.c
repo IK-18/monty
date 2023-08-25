@@ -1,5 +1,5 @@
 #include "monty.h"
-pseudo_t pseudo = {NULL, NULL, NULL, 0};
+pseudo_t pseudo = {NULL, NULL, NULL, LIFO};
 
 /**
  * main - main function
@@ -28,6 +28,7 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
+	pseudo.file = file;
 	for (rbytes = 1; rbytes > 0; )
 	{
 		line = NULL;
